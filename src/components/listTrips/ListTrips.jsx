@@ -7,7 +7,6 @@ import { ListGroup } from 'bootstrap-4-react';
 export const ListTrips = () => {
   const dispatch = useDispatch();
   const trips = useSelector((state) => state.trips.tripsList);
-
   useEffect(() => {
     dispatch(getTrips());
   }, [dispatch]);
