@@ -18,9 +18,7 @@ export const ListUsers = () => {
     <ListGroup>
       {isLoading !== 'idle' && <Loader />}
 
-      {users.length === 0 && (
-        <h2 className="text-center pt-4">There are no users</h2>
-      )}
+      {users?.length === 0 && <h2 className="text-center pt-4">There are no users</h2>}
       {users.map((user) => {
         return <User user={user} key={user.id} />;
       })}

@@ -10,11 +10,10 @@ export const ListTrips = () => {
   useEffect(() => {
     dispatch(getTrips());
   }, [dispatch]);
+
   return (
     <div className="py-4">
-      {trips.length === 0 && (
-        <h2 className="text-center pt-4">There are no users</h2>
-      )}
+      {trips?.length === 0 && <h2 className="text-center pt-4">There are not users</h2>}
       <ListGroup>
         {trips.map((trip) => {
           return <Trip trip={trip} key={trip.id} />;
