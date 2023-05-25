@@ -21,10 +21,7 @@ import {
 import { auth, db } from '../firebase/config';
 import { doc, setDoc } from 'firebase/firestore';
 import { toast } from 'react-toastify';
-import {
-  changeAuthUserStatus,
-  createUser,
-} from '../features/slices/authUserSlice';
+import { changeAuthUserStatus, createUser } from '../features/slices/authUserSlice';
 import OtpInput from 'react-otp-input';
 import { Oval } from 'react-loader-spinner';
 import PhoneInput from 'react-phone-input-2';
@@ -36,15 +33,9 @@ export const Authorization = () => {
   const [loading, setLoading] = useState(false);
   const [showOTP, setShowOTP] = useState(false);
   const dispatch = useDispatch();
-  const userLoginEmail = useSelector(
-    (state) => state.authorization.form.userEmail
-  );
-  const userLoginPhone = useSelector(
-    (state) => state.authorization.form.userPhone
-  );
-  const userLoginPassword = useSelector(
-    (state) => state.authorization.form.userPassword
-  );
+  const userLoginEmail = useSelector((state) => state.authorization.form.userEmail);
+  const userLoginPhone = useSelector((state) => state.authorization.form.userPhone);
+  const userLoginPassword = useSelector((state) => state.authorization.form.userPassword);
   const isLoginLoading = useSelector((state) => state.authorization.isLoading);
   const navigate = useNavigate();
 
@@ -113,7 +104,6 @@ export const Authorization = () => {
           .catch((error) => {
             console.error('Помилка при збереженні даних користувача:', error);
           });
-        console.log(user);
       })
       .catch((error) => {
         dispatch(changeStatusLoginLoading(false));
@@ -154,7 +144,6 @@ export const Authorization = () => {
           .catch((error) => {
             console.error('Помилка при збереженні даних користувача:', error);
           });
-        console.log(user);
       })
       .catch((error) => {
         toast.error(error.message);
@@ -264,17 +253,13 @@ export const Authorization = () => {
               id="exampleInputEmail1"
               placeholder="Enter email"
             />
-            <Form.Text text="muted">
-              We'll never share your email with anyone else.
-            </Form.Text>
+            <Form.Text text="muted">We'll never share your email with anyone else.</Form.Text>
           </Form.Group>
           <Form.Group>
             <label htmlFor="exampleInputPassword1">Password</label>
             <Form.Input
               value={userLoginPassword}
-              onChange={(e) =>
-                dispatch(changeUserLoginPassword(e.target.value))
-              }
+              onChange={(e) => dispatch(changeUserLoginPassword(e.target.value))}
               type="password"
               id="exampleInputPassword1"
               placeholder="Password"
