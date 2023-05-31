@@ -180,7 +180,6 @@ export const Authorization = () => {
     const formatPh = '+' + userLoginPhone;
     signInWithPhoneNumber(auth, formatPh, appVerifier)
       .then((confirmationResult) => {
-        console.log();
         window.confirmationResult = confirmationResult;
         setLoading(false);
         setShowOTP(true);
@@ -199,7 +198,6 @@ export const Authorization = () => {
     window.confirmationResult
       .confirm(otp)
       .then(async (res) => {
-        console.log(res);
         toast.success('Login Successfully');
         dispatch(changeAuthUserStatus(true));
         setLoading(false);
@@ -229,7 +227,6 @@ export const Authorization = () => {
           .catch((error) => {
             console.error('Помилка при збереженні даних користувача:', error);
           });
-        console.log(user);
         navigate('/');
       })
       .catch((error) => {

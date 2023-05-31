@@ -9,7 +9,6 @@ export const getTrips = createAsyncThunk('trips/getTrips', async () => {
     querySnapshot.forEach((doc) => {
       trips.push({ ...doc.data() });
     });
-    console.log(trips);
     return trips;
   } catch (error) {
     console.log(error);

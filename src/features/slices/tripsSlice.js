@@ -28,7 +28,6 @@ const tripsSlice = createSlice({
         (state) => {
           state.loading = 'idle';
           state.error = 'Error';
-          console.log('error');
         }
       );
   },

@@ -18,9 +18,7 @@ import { ImCheckmark } from 'react-icons/im';
 
 export const Registration = () => {
   const userEmail = useSelector((state) => state.registration.form.userEmail);
-  const userPassword = useSelector(
-    (state) => state.registration.form.userPassword
-  );
+  const userPassword = useSelector((state) => state.registration.form.userPassword);
   const isLoading = useSelector((state) => state.registration.isLoading);
 
   const dispatch = useDispatch();
@@ -40,7 +38,6 @@ export const Registration = () => {
         dispatch(changeUserPassword(''));
 
         const user = userCredential.user;
-        console.log(user);
         dispatch(
           createUser({
             displayName: user.displayName || 'user',
@@ -63,7 +60,6 @@ export const Registration = () => {
           .catch((error) => {
             console.error('Помилка при збереженні даних користувача:', error);
           });
-        console.log(user);
       })
       .catch((error) => {
         dispatch(changeStatusLoading(false));
@@ -103,9 +99,7 @@ export const Registration = () => {
               id="exampleInputEmail1"
               placeholder="Enter email"
             />
-            <Form.Text text="muted">
-              We'll never share your email with anyone else.
-            </Form.Text>
+            <Form.Text text="muted">We'll never share your email with anyone else.</Form.Text>
           </Form.Group>
 
           <Form.Group>

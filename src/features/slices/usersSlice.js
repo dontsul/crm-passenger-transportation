@@ -28,7 +28,6 @@ const usersSlice = createSlice({
         (state) => {
           state.loading = 'idle';
           state.error = 'Error';
-          console.log('error');
         }
       );
   },

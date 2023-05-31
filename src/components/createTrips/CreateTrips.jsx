@@ -12,7 +12,6 @@ async function addDataToFirestore(collectionName, data, dispatch) {
     const docRef = await addDoc(collection(db, collectionName), data);
     toast.success('Trip created');
     dispatch(getTrips());
-    console.log('Document written with ID:', docRef.id);
   } catch (e) {
     toast.error(e);
     console.error('Error adding document:', e);
